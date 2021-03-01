@@ -1,17 +1,11 @@
 .navigationContainer {
   background-color: white;
   padding: 2rem 0;
-  position: relative;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-}
-
-.navigationContainer > img {
-  position: absolute;
-  top: 1.5rem;
+  justify-content: space-between;
 }
 
 .navigationContainer > div {
@@ -19,6 +13,16 @@
   padding: 0.5rem 0;
 
   position: relative;
+}
+
+.navigationContainer button {
+  border: none;
+  background: transparent;
+  transition: all 0.2s;
+}
+.navigationContainer button:hover {
+  filter: brightness(75%);
+  transition: all 0.2s;
 }
 
 .navigationContainer svg {

@@ -1,7 +1,8 @@
-import {createContext, ReactNode, useEffect, useState} from 'react';
+import {createContext, ReactNode, useContext, useEffect, useState} from 'react';
 import Cookies from 'js-cookie';
 import challenges from '../../challenges.json';
 import { LevelUpModal } from '../components/LevelUpModal';
+import { AuthContext } from './AuthContext';
 
 interface Challenge {
   type: 'body' | 'eye';
@@ -36,6 +37,8 @@ export function ChallengesProvider({
     ...rest
   }: ChallengesProviderProps) {
 
+  const {saveData} = useContext(AuthContext);
+
   const [level, setLevel] = useState(rest.level ?? 1);
   const [currentExperience, setCurrentExperience] = useState(rest.currentExperience ?? 0);
   const [challengesCompleted, setChallengesCompleted] = useState(rest.challengesCompleted ?? 0);
@@ -53,6 +56,8 @@ export function ChallengesProvider({
     Cookies.set('level', level.toString());
     Cookies.set('currentExperience', currentExperience.toString());
     Cookies.set('challengesCompleted', challengesCompleted.toString());
+
+    saveData().catch(err => console.log(err));
   }, [level, currentExperience, challengesCompleted]);
 
   function levelUp() {

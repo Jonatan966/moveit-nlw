@@ -62,6 +62,10 @@
   position: relative;
 }
 
+.countdownButton > svg {
+  margin: 0 0.5rem;
+}
+
 .countdownButton:not(:disabled):hover {
   background: var(--blue-dark);
 }
@@ -77,7 +81,7 @@
   color: var(--white);
 }
 
-.countdownButtonActive > div {
+.countdownButton > div {
   border-radius: 4px;
   background: var(--gray-line);
 
@@ -91,7 +95,11 @@
   display: none;
 }
 
-.countdownButtonActive > div > div {
+.countdownButton:disabled > div > div {
+  width: 100%;
+}
+
+.countdownButton > div > div {
   height: 4px;
   border-radius: 4px;
   background: var(--green);
@@ -103,16 +111,4 @@
   background: var(--white);
   color: var(--text);
   cursor: not-allowed;
-}
-
-.countdownButton:disabled ~ .countdownButton:after {
-  position: absolute;
-  content: '';
-
-  bottom: 0;
-  height: 5px;
-  width: 100%;
-  background: var(--green);
-
-  border-radius: 0 0 5px 5px;
 }

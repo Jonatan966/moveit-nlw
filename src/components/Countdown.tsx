@@ -1,4 +1,7 @@
 import { useContext } from 'react';
+import {FaCheckCircle} from 'react-icons/fa';
+import {BsPlayFill, BsX} from 'react-icons/bs';
+
 import { CountdownContext } from '../contexts/CountdownContext';
 import styles from '../styles/components/Countdown.module.css';
 
@@ -37,7 +40,11 @@ export function Countdown() {
           disabled
           className={styles.countdownButton}
         >
+          <div>
+            <div/>
+          </div>
           Ciclo encerrado
+          <FaCheckCircle size={25} color='var(--green)'/>
         </button>
       ) : (
         <>
@@ -48,9 +55,10 @@ export function Countdown() {
               onClick={resetCountdown}
             >
               <div>
-                <div style={{width: `${timeLeft}%`}}/>
+                <div style={{width: `${100-timeLeft}%`}}/>
               </div>
               Abandonar ciclo
+              <BsX size={25}/>
             </button>
           ) : (
             <button 
@@ -59,6 +67,7 @@ export function Countdown() {
               onClick={startCountdown}
             >
               Iniciar um ciclo
+              <BsPlayFill size={25}/>
             </button>
           ) }
 

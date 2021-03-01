@@ -10,8 +10,19 @@
   padding: 1.25rem;
 
   color: var(--white);
-
+  
   flex: 1;
+}
+
+.InputContainer > input::placeholder {
+  color: #B2B9FF;
+}
+
+.InputContainer input:not(:placeholder-shown) + button {
+  background: var(--green);
+  transition: background 0.2s;
+
+  cursor: pointer;
 }
 
 .InputContainer > button {
@@ -20,7 +31,10 @@
   border-radius: 0 5px 5px 0;
 
   color: var(--white);
-  background: var(--green);
+  background: var(--blue-dark);
   
   font-size: 0px;
+  transition: background 0.2s;
+
+  cursor: not-allowed;
 }

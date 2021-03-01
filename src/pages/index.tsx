@@ -11,6 +11,7 @@ import { CountdownProvider } from '../contexts/CountdownContext'
 import styles from '../styles/pages/Home.module.css'
 import { ChallengesProvider } from '../contexts/ChallengesContext';
 import NavigationBar from '../components/NavigationBar';
+import { AuthProvider } from '../contexts/AuthContext';
 
 interface HomeProps {
   level: number;
@@ -20,41 +21,43 @@ interface HomeProps {
 
 export default function Home(props: HomeProps) {
   return (
-    <ChallengesProvider 
-      level={props.level} 
-      currentExperience={props.currentExperience}
-      challengesCompleted={props.challengesCompleted}
-    >
-      <NavigationBar/>
-      <div className={styles.container}>
-        <Head>
-          <title>Início | move.it</title>
-        </Head>
+    <AuthProvider>
+      <ChallengesProvider 
+        level={props.level} 
+        currentExperience={props.currentExperience}
+        challengesCompleted={props.challengesCompleted}
+      >
+        <NavigationBar/>
+        <div className={styles.container}>
+          <Head>
+            <title>Início | move.it</title>
+          </Head>
 
-        <ExperienceBar/>
+          <ExperienceBar/>
 
-        <CountdownProvider>
-          <section>
-            <div className=''>
-              <Profile/>
-              <CompletedChallenges/>
-              <Countdown/>
-            </div>
-            <div>
-              <ChallengeBox/>
-            </div>
-          </section>
-        </CountdownProvider>
-      </div>  
-    </ChallengesProvider>
+          <CountdownProvider>
+            <section>
+              <div className=''>
+                <Profile/>
+                <CompletedChallenges/>
+                <Countdown/>
+              </div>
+              <div>
+                <ChallengeBox/>
+              </div>
+            </section>
+          </CountdownProvider>
+        </div>  
+      </ChallengesProvider>
+    </AuthProvider>
   )
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
 
-  const { level, currentExperience, challengesCompleted, username } = context.req.cookies;
+  const { level, currentExperience, challengesCompleted, access_token} = context.req.cookies;
 
-  if (!username) {
+  if (!access_token) {
     context.res.statusCode = 302;
     context.res.setHeader('Location', '/login');
     return {props: {}};
@@ -64,7 +67,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: {
       level: Number(level),
       currentExperience: Number(currentExperience),
-      challengesCompleted: Number(challengesCompleted)
+      challengesCompleted: Number(challengesCompleted),
     }
   }
 }

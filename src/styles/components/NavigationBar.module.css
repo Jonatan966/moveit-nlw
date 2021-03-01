@@ -1,0 +1,54 @@
+.navigationContainer {
+  background-color: white;
+  padding: 2rem 0;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.navigationContainer > img {
+  position: absolute;
+  top: 1.5rem;
+}
+
+.navigationContainer > div {
+  cursor: pointer;
+  padding: 0.5rem 0;
+
+  position: relative;
+}
+
+.navigationContainer svg {
+  margin: 1rem 0;
+
+  color: var(--text);
+  transition: color 0.2s;
+  width: 6rem;
+}
+.navigationContainer div:hover svg {
+  color: var(--blue);
+  transition: color 0.2s;
+}
+
+.selectedMenu {
+  position: relative;
+}
+
+.selectedMenu > svg {
+  color: var(--blue);
+}
+
+.selectedMenu::after {
+  content: '';
+  position: absolute;
+
+  left: 0; top: 0; bottom: 0;
+  margin: 15% 0;
+
+  width: 4px;
+  background: var(--blue);
+  border-radius: 0 5px 5px 0;
+}

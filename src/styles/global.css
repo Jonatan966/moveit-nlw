@@ -48,3 +48,6 @@ a {
   text-decoration: none;
 }
 
+#__next {
+  display: flex;
+}

@@ -10,6 +10,7 @@ import { CountdownProvider } from '../contexts/CountdownContext'
 
 import styles from '../styles/pages/Home.module.css'
 import { ChallengesProvider } from '../contexts/ChallengesContext';
+import NavigationBar from '../components/NavigationBar';
 
 interface HomeProps {
   level: number;
@@ -24,6 +25,7 @@ export default function Home(props: HomeProps) {
       currentExperience={props.currentExperience}
       challengesCompleted={props.challengesCompleted}
     >
+      <NavigationBar/>
       <div className={styles.container}>
         <Head>
           <title>Início | move.it</title>

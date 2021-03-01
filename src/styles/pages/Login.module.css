@@ -1,0 +1,33 @@
+.loginPage {
+  width: 100vw;
+  height: 100vh;
+
+  background: var(--blue);
+
+  display: flex;
+  align-items: center;
+
+  color: white;
+}
+
+.loginPanel {
+  margin: auto;
+}
+
+.loginPanel > img {
+  margin-bottom: 5rem;
+  width: 25rem;
+}
+
+.loginPanel span {
+  margin: 2.5rem 0;
+  display: flex;
+}
+
+.loginPanel p {
+  text-align: justify;
+  max-width: 15rem;
+  margin-left: 0.5rem;
+
+  color: #B2B9FF;
+}

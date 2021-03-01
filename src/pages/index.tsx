@@ -52,7 +52,13 @@ export default function Home(props: HomeProps) {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
 
-  const { level, currentExperience, challengesCompleted } = context.req.cookies;
+  const { level, currentExperience, challengesCompleted, username } = context.req.cookies;
+
+  if (!username) {
+    context.res.statusCode = 302;
+    context.res.setHeader('Location', '/login');
+    return {props: {}};
+  }
 
   return {
     props: {

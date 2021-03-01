@@ -9,12 +9,14 @@ export function Countdown() {
     seconds,
     hasFinished,
     isActive,
+    totalTime,
     startCountdown,
     resetCountdown 
   } = useContext(CountdownContext);
 
   const [minuteLeft, minuteRight] = String(minutes).padStart(2, '0').split('');
   const [secondLeft, secondRight] = String(seconds).padStart(2, '0').split('');
+  const timeLeft = Math.round(((minutes * 60) + seconds) * 100) / (totalTime * 60);
 
   return (
     <div>
@@ -45,6 +47,9 @@ export function Countdown() {
               className={`${styles.countdownButton} ${styles.countdownButtonActive}`}
               onClick={resetCountdown}
             >
+              <div>
+                <div style={{width: `${timeLeft}%`}}/>
+              </div>
               Abandonar ciclo
             </button>
           ) : (

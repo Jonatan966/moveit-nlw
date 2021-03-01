@@ -6,6 +6,7 @@ interface CountdownContextData {
   seconds: number;
   hasFinished: boolean;
   isActive: boolean;
+  totalTime: number;
   startCountdown: () => void;
   resetCountdown: () => void;
 }
@@ -22,7 +23,9 @@ let countdownTimeout: NodeJS.Timeout;
 export function CountdownProvider({children}: CountdownProviderProps) {
   const { startNewChallenge } = useContext(ChallengesContext);
 
-  const [time, setTime] = useState(25 * 60);
+  const totalTime = 25;
+
+  const [time, setTime] = useState(totalTime * 60);
   const [isActive, setIsActive] = useState(false);
   const [hasFinished, setHasFinished] = useState(false);
 
@@ -38,7 +41,7 @@ export function CountdownProvider({children}: CountdownProviderProps) {
     clearTimeout(countdownTimeout);
     setIsActive(false);
     setHasFinished(false);
-    setTime(25 * 60);
+    setTime(totalTime * 60);
   }
 
   useEffect(() => {
@@ -60,6 +63,7 @@ export function CountdownProvider({children}: CountdownProviderProps) {
       seconds,
       hasFinished,
       isActive,
+      totalTime,
       startCountdown,
       resetCountdown
     }}>

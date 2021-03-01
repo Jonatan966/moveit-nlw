@@ -31,3 +31,29 @@
 
   color: #B2B9FF;
 }
+
+.loginPanel button {
+  width: 100%;
+  padding: 1.5rem;
+
+  color: var(--white);
+  background: var(--green);
+  
+  font-size: 1.2rem;
+
+  border: none;
+  border-radius: 5px;
+  transition: filter 0.2s;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loginPanel button > svg {
+  margin: 0 0.5rem;
+}
+
+.loginPanel button:hover {
+  filter: brightness(80%);
+  transition: filter 0.2s;
+}

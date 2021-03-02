@@ -51,3 +51,9 @@ a {
 #__next {
   display: flex;
 }
+
+@media (max-width: 1200px) {
+  #__next {
+    flex-direction: column-reverse;
+  }
+}

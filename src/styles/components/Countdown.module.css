@@ -105,6 +105,7 @@
   background: var(--green);
 
   max-width: 100%;
+  transition: width 0.2s;
 }
 
 .countdownButton:disabled {

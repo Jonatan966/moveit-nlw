@@ -45,3 +45,13 @@
   filter: brightness(80%);
   transition: filter 0.2s;
 }
+
+@media (max-width: 1200px) {
+  .loginPanel {
+    margin: auto 3rem 3rem 3rem;
+  }
+
+  .loginPanel > img {
+    width: 18rem;
+  }
+}

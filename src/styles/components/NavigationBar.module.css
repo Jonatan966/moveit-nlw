@@ -30,9 +30,9 @@
 
   color: var(--text);
   transition: color 0.2s;
-  width: 6rem;
+  width: 6rem; 
 }
-.navigationContainer div:hover svg {
+.navigationContainer > div > div:hover svg {
   color: var(--blue);
   transition: color 0.2s;
 }

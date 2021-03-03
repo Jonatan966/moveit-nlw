@@ -3,7 +3,11 @@ import LoginPanel from '../components/LoginPanel';
  
 import styles from '../styles/pages/Login.module.css';
 
-function Login() {
+interface LoginPageProps {
+  clientID: string;
+}
+
+function Login({clientID}: LoginPageProps) {
   return (
     <div className={styles.loginPage}>
       <Head>
@@ -12,9 +16,17 @@ function Login() {
 
       <img src="Simbolo.svg"/>
 
-      <LoginPanel/>
+      <LoginPanel clientID={clientID}/>
     </div>
   )
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      clientID: process.env.GITHUB_CLIENT_ID
+    }
+  }
 }
 
 export default Login;

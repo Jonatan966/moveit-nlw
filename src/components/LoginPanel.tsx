@@ -3,9 +3,13 @@ import redirector from 'next/router';
 
 import styles from '../styles/components/LoginPanel.module.css';
 
-function LoginPanel() {
+interface LoginPanelProps {
+  clientID: string;
+}
+
+function LoginPanel({clientID}: LoginPanelProps) {
   async function submitLogin() {
-    redirector.push('https://github.com/login/oauth/authorize?client_id=1bcf2d45dafaea43a710');
+    redirector.push(`https://github.com/login/oauth/authorize?client_id=${clientID}`);
   }
 
   return (

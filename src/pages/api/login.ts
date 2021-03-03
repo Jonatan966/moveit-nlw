@@ -3,7 +3,7 @@ import {NextApiRequest, NextApiResponse} from 'next';
 import {serialize} from 'cookie';
 import axios from 'axios';
 
-const github_api_url = `https://github.com/login/oauth/access_token?client_id=1bcf2d45dafaea43a710&client_secret=${process.env.GITHUB_APP_SECRET}`;
+const github_api_url = `https://github.com/login/oauth/access_token?client_id=${process.env.GITHUB_CLIENT_ID}&client_secret=${process.env.GITHUB_APP_SECRET}`;
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.query.code) {

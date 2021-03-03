@@ -57,7 +57,7 @@ export function ChallengesProvider({
     Cookies.set('currentExperience', currentExperience.toString());
     Cookies.set('challengesCompleted', challengesCompleted.toString());
 
-    saveData().catch(err => console.log(err));
+    saveData();
   }, [level, currentExperience, challengesCompleted]);
 
   function levelUp() {

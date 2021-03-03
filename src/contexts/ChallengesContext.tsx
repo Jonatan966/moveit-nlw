@@ -1,8 +1,8 @@
 import {createContext, ReactNode, useContext, useEffect, useState} from 'react';
 import Cookies from 'js-cookie';
-import challenges from '../../challenges.json';
 import { LevelUpModal } from '../components/LevelUpModal';
 import { AuthContext } from './AuthContext';
+import api from '../connectors/APIConnector';
 
 interface Challenge {
   type: 'body' | 'eye';
@@ -69,9 +69,8 @@ export function ChallengesProvider({
     setIsLevelUpModalOpen(false);
   }
 
-  function startNewChallenge() {
-    const randomChallengeIndex = Math.floor(Math.random() * challenges.length);
-    const challenge = challenges[randomChallengeIndex];
+  async function startNewChallenge() {
+    const challenge = (await api.get('/api/challenge')).data as Challenge;
 
     setActiveChallenge(challenge);
 

@@ -2,17 +2,13 @@ import {BiAward, BiHomeAlt} from 'react-icons/bi';
 import Link from 'next/link';
 
 import styles from '../styles/components/NavigationBar.module.css';
-import { FiPower } from 'react-icons/fi';
-import { useContext } from 'react';
-import { AuthContext } from '../contexts/AuthContext';
+import { FiMoon } from 'react-icons/fi';
 
 interface NavigationBarProps {
   activeMenu?: number;
 }
 
 function NavigationBar({activeMenu = 0}: NavigationBarProps) {
-  const {logOut} = useContext(AuthContext);
-
   return (
     <div className={styles.navigationContainer}>
       <img src="icons/Logo.svg" alt="Moveit"/>
@@ -31,8 +27,8 @@ function NavigationBar({activeMenu = 0}: NavigationBarProps) {
         </Link>
       </div>
 
-      <button onClick={logOut}>
-        <FiPower color='var(--red)' size={35}/>
+      <button>
+        <FiMoon color='var(--title)' size={35}/>
       </button>
     </div>
   )

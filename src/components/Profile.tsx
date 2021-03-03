@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
+import { FiPower } from 'react-icons/fi';
 import useSWR from 'swr';
 import { AuthContext } from '../contexts/AuthContext';
 import { ChallengesContext } from '../contexts/ChallengesContext';
@@ -7,7 +8,7 @@ import styles from '../styles/components/Profile.module.css';
 
 export function Profile() {
   const {level} = useContext(ChallengesContext);
-  const {getData} = useContext(AuthContext);
+  const {getData, logOut} = useContext(AuthContext);
 
   const {data} = useSWR('user-data', getData);
   
@@ -25,6 +26,10 @@ export function Profile() {
           Level {level}
         </p>
       </div>
+
+      <button title='Desconectar-se' onClick={logOut}>
+        <FiPower size={30}/>
+      </button>
     </div>
   )
 }

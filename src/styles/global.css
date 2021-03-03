@@ -50,6 +50,7 @@ a {
 
 #__next {
   display: flex;
+  height: 100vh;
 }
 
 @media (max-width: 1200px) {

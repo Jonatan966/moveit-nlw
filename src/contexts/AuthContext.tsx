@@ -42,8 +42,14 @@ export function AuthProvider({children}: AuthProviderProps) {
   }
 
   async function getData() {
-    const data = (await api.get('/api/user')).data as UserData;
-    return data;
+    try {
+      const data = (await api.get('/api/user')).data as UserData;
+      return data;  
+    }
+    catch (error) {
+      redirector.push(`/login?error=${error.response.status === 401 ? 'not_authorized' : 'internal_error'}`);
+      return {} as UserData;
+    }
   }
 
   async function saveData() {

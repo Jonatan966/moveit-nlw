@@ -8,7 +8,7 @@ import { ExperienceBar } from '../components/ExperienceBar'
 import { Profile } from '../components/Profile'
 import { CountdownProvider } from '../contexts/CountdownContext'
 
-import styles from '../styles/pages/Home.module.css'
+import styles from '../styles/pages/Home.module.scss'
 import { ChallengesProvider } from '../contexts/ChallengesContext';
 import NavigationBar from '../components/NavigationBar';
 import { AuthProvider } from '../contexts/AuthContext';

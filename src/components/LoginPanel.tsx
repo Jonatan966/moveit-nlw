@@ -1,7 +1,7 @@
 import { SiGithub } from 'react-icons/si';
 import redirector from 'next/router';
 
-import styles from '../styles/components/LoginPanel.module.css';
+import styles from '../styles/components/LoginPanel.module.scss';
 
 interface LoginPanelProps {
   clientID: string;

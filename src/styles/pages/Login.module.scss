@@ -13,11 +13,11 @@
 @media (max-width: 1200px) {
   .loginPage {
     flex-direction: column;
-  }
-  
-  .loginPage > img {
-    width: 20rem;
-    position: absolute;
-    top: 0; left: 0;
+
+    > img {
+      width: 20rem;
+      position: absolute;
+      top: 0; left: 0;
+    }
   }
 }

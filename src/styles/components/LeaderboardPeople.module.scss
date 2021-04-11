@@ -1,0 +1,54 @@
+.leaderItem {
+  border: 0;
+  background: #fff;
+  color: #969cb3;
+  border-radius: 0.25rem;
+
+  td {
+    padding: 1rem 2rem;
+
+    // &:nth-child(1) {
+    //   text-align: center;  
+    // }
+  }
+
+  img {
+    zoom: 0.7;
+  }
+}
+
+@media (max-width: 820px) {
+  .leaderItem {
+    display: grid;
+    grid-template-areas: 
+      'position people people'
+      'position people people'
+      'position completed experience';
+
+    grid-template-columns: 0.2fr auto auto;
+
+    & + tr {
+      margin: 1rem 0;
+    }
+    
+    td {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+      &:nth-child(1) {
+        grid-area: position;
+      }
+      &:nth-child(2) {
+        grid-area: people;
+      }
+      &:nth-child(3) {
+        grid-area: completed;
+      }
+      &:nth-child(4) {
+        grid-area: experience;
+      }
+     
+    }
+  }
+}

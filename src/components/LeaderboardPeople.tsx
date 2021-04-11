@@ -1,5 +1,5 @@
-import styles from '../styles/components/LeaderboardPeople.module.css';
-import profileStyles from '../styles/components/Profile.module.css';
+import styles from '../styles/components/LeaderboardPeople.module.scss';
+import profileStyles from '../styles/components/Profile.module.scss';
 
 interface LeaderboardPeopleProps {
   position: number;
@@ -25,23 +25,23 @@ function LeaderboardProfile() {
 
 function LeaderboardPeople({position, completedChallenges, experience}: LeaderboardPeopleProps) {
   return (
-    <div className={styles.leaderItem}>
-      <span>
+    <tr className={styles.leaderItem}>
+      <td>
         <h1>{position}</h1>
-      </span>
-      <span>
+      </td>
+      <td>
         <LeaderboardProfile/>
-      </span>
-      <span>
+      </td>
+      <td>
         <strong>{completedChallenges}</strong>
         concluídos
-      </span>
-      <span>
+      </td>
+      <td>
         <strong>{experience}</strong>
         xp
-      </span>
+      </td>
 
-    </div>
+    </tr>
   );
 }
 

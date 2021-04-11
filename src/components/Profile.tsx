@@ -4,7 +4,7 @@ import { FiPower } from 'react-icons/fi';
 import useSWR from 'swr';
 import { AuthContext } from '../contexts/AuthContext';
 import { ChallengesContext } from '../contexts/ChallengesContext';
-import styles from '../styles/components/Profile.module.css';
+import styles from '../styles/components/Profile.module.scss';
 
 export function Profile() {
   const {level} = useContext(ChallengesContext);

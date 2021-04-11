@@ -1,7 +1,7 @@
 import {BiAward, BiHomeAlt} from 'react-icons/bi';
 import Link from 'next/link';
 
-import styles from '../styles/components/NavigationBar.module.css';
+import styles from '../styles/components/NavigationBar.module.scss';
 import { FiMoon } from 'react-icons/fi';
 
 interface NavigationBarProps {

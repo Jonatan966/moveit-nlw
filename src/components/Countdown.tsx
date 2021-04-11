@@ -3,7 +3,7 @@ import {FaCheckCircle} from 'react-icons/fa';
 import {BsPlayFill, BsX} from 'react-icons/bs';
 
 import { CountdownContext } from '../contexts/CountdownContext';
-import styles from '../styles/components/Countdown.module.css';
+import styles from '../styles/components/Countdown.module.scss';
 
 
 export function Countdown() {

@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import LoginPanel from '../components/LoginPanel';
  
-import styles from '../styles/pages/Login.module.css';
+import styles from '../styles/pages/Login.module.scss';
 
 interface LoginPageProps {
   clientID: string;
